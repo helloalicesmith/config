@@ -40,5 +40,12 @@ vim.api.nvim_set_keymap(
   {noremap = true}
 )
 
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>e",
+  ":e %:h/",
+  {noremap = true}
+)
+
 -- "<cmd>lua require 'telescope'.extensions.file_browser.file_browser({ cwd = vim.fn.expand('%:p:h') })<CR>",
 
