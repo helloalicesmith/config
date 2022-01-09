@@ -15,6 +15,7 @@ opt.tabstop = 2           -- 1 tab == 4 spaces
 opt.smartindent = true    -- autoindent new lines
 opt.termguicolors = true
 opt.swapfile = false
+opt.hlsearch = true
 -- opt.autochdir = true
 
 cmd([[
@@ -37,6 +38,13 @@ vim.api.nvim_set_keymap(
   "n",
   "<F2>",
   "<cmd>lua require 'telescope'.extensions.file_browser.file_browser()<CR>",
+  {noremap = true}
+)
+
+vim.api.nvim_set_keymap(
+  "n",
+  "<C-F2>",
+  "<cmd>lua require 'telescope'.extensions.file_browser.file_browser({ cwd = vim.fn.expand('%:p:h') })<CR>",
   {noremap = true}
 )
 
