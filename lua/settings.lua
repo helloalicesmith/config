@@ -16,7 +16,6 @@ opt.smartindent = true    -- autoindent new lines
 opt.termguicolors = true
 opt.swapfile = false
 opt.hlsearch = false
--- opt.autochdir = true
 
 cmd([[
 filetype indent plugin on
