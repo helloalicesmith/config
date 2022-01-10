@@ -2,6 +2,7 @@ local npairs = require("nvim-autopairs")
 local lspconfig = require("lspconfig")
 local null_ls = require("null-ls")
 local cmp = require("cmp")
+local luasnip = require('luasnip')
 
 local buf_map = function(bufnr, mode, lhs, rhs, opts)
     vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, opts or {
@@ -91,9 +92,9 @@ require'nvim-treesitter.configs'.setup {
 
 null_ls.setup({
     sources = {
-        null_ls.builtins.diagnostics.eslint,
-        null_ls.builtins.code_actions.eslint,
-        null_ls.builtins.formatting.prettier,
+        -- null_ls.builtins.diagnostics.eslint,
+        -- null_ls.builtins.code_actions.eslint,
+        -- null_ls.builtins.formatting.prettier,
     },
     on_attach = on_attach,
 })
@@ -102,7 +103,7 @@ null_ls.setup({
 cmp.setup {
   snippet = {
     expand = function(args)
-      require('luasnip').lsp_expand(args.body)
+      luasnip.lsp_expand(args.body)
     end,
   },
   mapping = {

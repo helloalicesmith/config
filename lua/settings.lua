@@ -15,7 +15,7 @@ opt.tabstop = 2           -- 1 tab == 4 spaces
 opt.smartindent = true    -- autoindent new lines
 opt.termguicolors = true
 opt.swapfile = false
-opt.hlsearch = true
+opt.hlsearch = false
 -- opt.autochdir = true
 
 cmd([[
