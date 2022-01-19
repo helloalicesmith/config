@@ -23,20 +23,26 @@ require('packer').startup(function()
   use "rktjmp/lush.nvim"
   -- use "ellisonleao/gruvbox.nvim"
   use "sainnhe/gruvbox-material"
+  use "chentau/marks.nvim"
   use {
   'nvim-lualine/lualine.nvim',
   requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
+  use {
+    'goolord/alpha-nvim',
+    requires = { 'kyazdani42/nvim-web-devicons' },
+    config = function ()
+        require'alpha'.setup(require'alpha.themes.startify'.opts)
+    end
+  }
+  use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
+  use 'famiu/bufdelete.nvim'
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = {
+      'kyazdani42/nvim-web-devicons', -- optional, for file icon
+    },
+    config = function() require'nvim-tree'.setup {} end
 }
 end)
 
-require('lualine').setup {
-  sections = {
-    lualine_a = {
-      {
-        'filename',
-        file_status = true,      -- Displays file status (readonly status, modified status)
-        path = 1,                -- 0: Just the filename
-      }
-    },
-  },
-}

@@ -3,8 +3,12 @@ local exec = vim.api.nvim_exec
 local g = vim.g
 local opt = vim.opt
 
+local keymap = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
+
 g.translate_source = 'ru'
 g.translate_target = 'en'
+g.mapleader = ' '
 
 opt.number = true
 opt.relativenumber = true
@@ -16,6 +20,7 @@ opt.smartindent = true    -- autoindent new lines
 opt.termguicolors = true
 opt.swapfile = false
 opt.hlsearch = false
+opt.mouse = 'a'
 
 cmd([[
 filetype indent plugin on
@@ -32,27 +37,6 @@ autocmd!
 autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=700}
 augroup end
 ]], false)
-
-vim.api.nvim_set_keymap(
-  "n",
-  "<F2>",
-  "<cmd>lua require 'telescope'.extensions.file_browser.file_browser()<CR>",
-  {noremap = true}
-)
-
-vim.api.nvim_set_keymap(
-  "n",
-  "<C-F2>",
-  "<cmd>lua require 'telescope'.extensions.file_browser.file_browser({ cwd = vim.fn.expand('%:p:h') })<CR>",
-  {noremap = true}
-)
-
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>e",
-  ":e %:h/",
-  {noremap = true}
-)
 
 -- "<cmd>lua require 'telescope'.extensions.file_browser.file_browser({ cwd = vim.fn.expand('%:p:h') })<CR>",
 
