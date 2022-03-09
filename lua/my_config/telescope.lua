@@ -1,13 +1,39 @@
 local actions = require("telescope.actions")
 local action_state = require "telescope.actions.state"
 
-require('telescope').setup{
+require('telescope').setup {
   defaults = {
     mappings = {
       i = {
          ["<esc>"] = actions.close
       },
     },
+    vimgrep_arguments = {
+      'rg',
+      '--color=never',
+      '--no-heading',
+      '--with-filename',
+      '--line-number',
+      '--column',
+      '--smart-case'
+    },
+    layout_config = {
+     horizontal = {
+       mirror = false,
+     },
+     vertical = {
+       mirror = false,
+     },
+     prompt_position = "top",
+    },
+    file_sorter      = require('telescope.sorters').get_fzy_sorter,
+    prompt_prefix    = ' 🔍 ',
+    color_devicons   = true,
+
+    sorting_strategy = "ascending",
+    file_previewer   = require('telescope.previewers').vim_buffer_cat.new,
+    grep_previewer   = require('telescope.previewers').vim_buffer_vimgrep.new,
+    qflist_previewer = require('telescope.previewers').vim_buffer_qflist.new,
   },
   pickers = {
     find_files = {},

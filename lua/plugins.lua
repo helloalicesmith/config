@@ -1,9 +1,10 @@
-local use = require('packer').use
-
-require('packer').startup(function()
+return require('packer').startup(function(use)
+  use 'wbthomason/packer.nvim'
+  use {'rose-pine/neovim', config = "vim.cmd('colorscheme rose-pine')"}
+  use 'windwp/nvim-ts-autotag'
   use 'junegunn/vim-peekaboo'
-  use 'ellisonleao/gruvbox.nvim'
-  use 'nvim-treesitter/nvim-treesitter'
+  -- use 'ellisonleao/gruvbox.nvim'
+  use { 'nvim-treesitter/nvim-treesitter', run = ":TSUpdate" }
   use 'nvim-telescope/telescope.nvim'
   use { "nvim-telescope/telescope-file-browser.nvim" }
   use 'nvim-lua/plenary.nvim'
@@ -18,22 +19,17 @@ require('packer').startup(function()
   use "jose-elias-alvarez/null-ls.nvim"
   use "jose-elias-alvarez/nvim-lsp-ts-utils"
 
-  use "tpope/vim-commentary"
-
   use "rktjmp/lush.nvim"
   -- use "ellisonleao/gruvbox.nvim"
   use "sainnhe/gruvbox-material"
   use "chentau/marks.nvim"
   use {
-  'nvim-lualine/lualine.nvim',
-  requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
   use {
     'goolord/alpha-nvim',
     requires = { 'kyazdani42/nvim-web-devicons' },
-    config = function ()
-        require'alpha'.setup(require'alpha.themes.startify'.opts)
-    end
   }
   use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
   use 'famiu/bufdelete.nvim'
@@ -42,7 +38,14 @@ require('packer').startup(function()
     requires = {
       'kyazdani42/nvim-web-devicons', -- optional, for file icon
     },
-    config = function() require'nvim-tree'.setup {} end
-}
+  }
+  use "f-person/git-blame.nvim"
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup()
+    end
+  }
+  use 'norcalli/nvim-colorizer.lua'
 end)
 

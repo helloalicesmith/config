@@ -19,10 +19,6 @@ local fmta = require("luasnip.extras.fmt").fmta
 local types = require("luasnip.util.types")
 local conds = require("luasnip.extras.expand_conditions")
 
-local function copy(args)
-	return args[1]
-end
-
 ls.snippets.all = {
     s("fnc", {
       t({"import React from 'react'", ""}),
@@ -53,3 +49,4 @@ ls.snippets.all = {
       t("'")
     })
 }
+

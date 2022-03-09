@@ -1,7 +1,7 @@
 local map = vim.api.nvim_set_keymap
 local default_opts = {noremap = true, silent = true}
 
-map('n', 'F1', ':Prettier<CR>', default_opts)
+map('n', '<F1>', ':LspFormatting<CR>', default_opts)
 
 -- map('n', '<leader>f', ':lua require("telescope.builtin").grep_string({ search = vim.fn.input("Grep For > ")})<cr>', default_opts)
 map('n', '<C-_>', ':Telescope current_buffer_fuzzy_find prompt_position=top<cr>', default_opts)
