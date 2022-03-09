@@ -1,5 +1,5 @@
-local alpha = require("alpha")
 local dashboard = require("alpha.themes.dashboard")
+local alpha = require("alpha")
 
 dashboard.section.buttons.val = {
 	dashboard.button("p", "  Find file", ":Telescope find_files <CR>"),
