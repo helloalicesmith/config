@@ -1,6 +1,5 @@
 require("my_config.telescope")
 require("my_config.lsp")
-require("my_config.theme")
 require("my_config.snippets")
 require("my_config.bufferline")
 require("my_config.lualine")
@@ -12,3 +11,5 @@ require("my_config.treesitter")
 require("my_config.colorizer")
 require("my_config.null-ls")
 require("my_config.gitsigns")
+require("my_config.theme")
+

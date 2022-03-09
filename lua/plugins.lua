@@ -1,6 +1,9 @@
 return require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
-	use({ "rose-pine/neovim", config = "vim.cmd('colorscheme rose-pine')" })
+	use({
+		"catppuccin/nvim",
+		as = "catppuccin",
+	})
 	use("windwp/nvim-ts-autotag")
 	use("junegunn/vim-peekaboo")
 	-- use 'ellisonleao/gruvbox.nvim'
@@ -20,7 +23,7 @@ return require("packer").startup(function(use)
 	use("jose-elias-alvarez/nvim-lsp-ts-utils")
 
 	use("rktjmp/lush.nvim")
-	use("sainnhe/gruvbox-material")
+	-- use("sainnhe/gruvbox-material")
 	use({
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
@@ -51,4 +54,6 @@ return require("packer").startup(function(use)
 		},
 		-- tag = 'release' -- To use the latest release
 	})
+	use("tjdevries/train.nvim")
+
 end)

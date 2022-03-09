@@ -95,6 +95,11 @@ _G.packer_plugins = {
     path = "/Users/vsevolod/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
     url = "https://github.com/akinsho/bufferline.nvim"
   },
+  catppuccin = {
+    loaded = true,
+    path = "/Users/vsevolod/.local/share/nvim/site/pack/packer/start/catppuccin",
+    url = "https://github.com/catppuccin/nvim"
+  },
   ["cmp-nvim-lsp"] = {
     loaded = true,
     path = "/Users/vsevolod/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
@@ -110,11 +115,6 @@ _G.packer_plugins = {
     path = "/Users/vsevolod/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
-  ["gruvbox-material"] = {
-    loaded = true,
-    path = "/Users/vsevolod/.local/share/nvim/site/pack/packer/start/gruvbox-material",
-    url = "https://github.com/sainnhe/gruvbox-material"
-  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/Users/vsevolod/.local/share/nvim/site/pack/packer/start/lualine.nvim",
@@ -124,12 +124,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/vsevolod/.local/share/nvim/site/pack/packer/start/lush.nvim",
     url = "https://github.com/rktjmp/lush.nvim"
-  },
-  neovim = {
-    config = { "vim.cmd('colorscheme rose-pine')" },
-    loaded = true,
-    path = "/Users/vsevolod/.local/share/nvim/site/pack/packer/start/neovim",
-    url = "https://github.com/rose-pine/neovim"
   },
   ["null-ls.nvim"] = {
     loaded = true,
@@ -201,6 +195,11 @@ _G.packer_plugins = {
     path = "/Users/vsevolod/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["train.nvim"] = {
+    loaded = true,
+    path = "/Users/vsevolod/.local/share/nvim/site/pack/packer/start/train.nvim",
+    url = "https://github.com/tjdevries/train.nvim"
+  },
   ["vim-peekaboo"] = {
     loaded = true,
     path = "/Users/vsevolod/.local/share/nvim/site/pack/packer/start/vim-peekaboo",
@@ -213,10 +212,6 @@ time([[Defining packer_plugins]], false)
 time([[Config for Comment.nvim]], true)
 try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fComment\frequire\0", "config", "Comment.nvim")
 time([[Config for Comment.nvim]], false)
--- Config for: neovim
-time([[Config for neovim]], true)
-vim.cmd('colorscheme rose-pine')
-time([[Config for neovim]], false)
 if should_profile then save_profiles() end
 
 end)
