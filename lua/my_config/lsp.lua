@@ -5,6 +5,26 @@ local log = require("vim.lsp.log")
 local util = require("vim.lsp.util")
 local runtime_path = vim.split(package.path, ";")
 
+-- do
+-- 	local method = "textDocument/publishDiagnostics"
+-- 	local default_handler = vim.lsp.handlers[method]
+-- 	vim.lsp.handlers[method] = function(err, method, result, client_id, bufnr, config)
+-- 		default_handler(err, method, result, client_id, bufnr, config)
+-- 		local diagnostics = vim.lsp.diagnostic.get_all()
+-- 		local qflist = {}
+-- 		for _, diagnostic in pairs(diagnostics) do
+-- 			for _, d in ipairs(diagnostic) do
+-- 				d.bufnr = bufnr
+-- 				d.lnum = d.range.start.line + 1
+-- 				d.col = d.range.start.character + 1
+-- 				d.text = d.message
+-- 				table.insert(qflist, d)
+-- 			end
+-- 		end
+-- 		vim.lsp.util.set_qflist(qflist)
+-- 	end
+-- end
+
 local buf_map = function(bufnr, mode, lhs, rhs, opts)
 	vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, opts or {
 		silent = true,
@@ -39,7 +59,7 @@ local on_attach = function(client, bufnr)
 	buf_map(bufnr, "n", "]a", ":LspDiagNext<CR>")
 	buf_map(bufnr, "n", "ga", ":LspCodeAction<CR>")
 	buf_map(bufnr, "n", "<Leader>a", ":LspDiagLine<CR>")
-	buf_map(bufnr, "n", "<C-k>", "<cmd> LspSignatureHelp<CR>")
+	-- buf_map(bufnr, "n", "<C-k>", "<cmd> LspSignatureHelp<CR>")
 end
 
 lspconfig.sumneko_lua.setup({

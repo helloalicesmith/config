@@ -7,10 +7,11 @@ map("n", "<F1>", ":LspFormatting<CR>", default_opts)
 map("n", "<C-_>", ":Telescope current_buffer_fuzzy_find prompt_position=top<cr>", default_opts)
 map(
 	"n",
-	"<leader>f",
-	':lua require"telescope.builtin".grep_string(require("telescope.themes").get_ivy({}))<cr>',
+	"<leader>g",
+	':lua require("telescope.builtin").grep_string(require("telescope.themes").get_ivy({search = vim.fn.input("Grep For > ")}))<cr>',
 	default_opts
 )
+
 map(
 	"n",
 	"<leader>l",
@@ -32,16 +33,10 @@ map(
 map("n", "~", "<cmd>lua require 'telescope.builtin'.marks()<CR>", default_opts)
 map("n", "<leader>e", ":e %:h/", default_opts)
 
--- Better window navigation
-map("n", "<C-h>", "<C-w>h", default_opts)
-map("n", "<C-j>", "<C-w>j", default_opts)
-map("n", "<C-k>", "<C-w>k", default_opts)
-map("n", "<C-l>", "<C-w>l", default_opts)
-
-map("n", "<C-Up>", ":resize -2<CR>", default_opts)
-map("n", "<C-Down>", ":resize +2<CR>", default_opts)
-map("n", "<C-Left>", ":vertical resize -2<CR>", default_opts)
-map("n", "<C-Right>", ":vertical resize +2<CR>", default_opts)
+map("n", "<Up>", ":resize -2<CR>", default_opts)
+map("n", "<Down>", ":resize +2<CR>", default_opts)
+map("n", "<Left>", ":vertical resize -2<CR>", default_opts)
+map("n", "<Right>", ":vertical resize +2<CR>", default_opts)
 
 -- Navigate buffers
 map("n", "<S-l>", ":BufferLineCycleNext<CR>", default_opts)
@@ -56,5 +51,10 @@ map("n", "<C-c>", ":lua require('bufdelete').bufdelete(bufnum, true)<CR>", defau
 map("n", "<F4>", ":NvimTreeToggle<CR>", default_opts)
 
 map("i", "<c-v>", "<ESC>:set paste<CR>gi<C-R>+<ESC>:set nopaste<CR>gi", default_opts)
+
+-- quickfix list
+map("n", "<leader>q", ":copen <CR>", default_opts)
+map("n", "<c-j>", ":cnext <CR>", default_opts)
+map("n", "<c-k>", ":cprev <CR>", default_opts)
 
 vim.cmd("command! Gb Gitsigns toggle_current_line_blame")

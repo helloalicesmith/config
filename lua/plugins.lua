@@ -9,7 +9,7 @@ return require("packer").startup(function(use)
 	-- use 'ellisonleao/gruvbox.nvim'
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 	use("nvim-telescope/telescope.nvim")
-	use({ "nvim-telescope/telescope-file-browser.nvim" })
+	use("nvim-telescope/telescope-file-browser.nvim")
 	use("nvim-lua/plenary.nvim")
 	use("windwp/nvim-autopairs")
 
@@ -27,24 +27,19 @@ return require("packer").startup(function(use)
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 	})
-	use({
-		"goolord/alpha-nvim",
-		requires = { "kyazdani42/nvim-web-devicons" },
-	})
-	use({ "akinsho/bufferline.nvim", requires = "kyazdani42/nvim-web-devicons" })
+	-- use({
+	-- 	"goolord/alpha-nvim",
+	-- 	requires = { "kyazdani42/nvim-web-devicons" },
+	-- })
+	-- use({ "akinsho/bufferline.nvim", requires = "kyazdani42/nvim-web-devicons" })
+	-- use({
+	-- 	"kyazdani42/nvim-tree.lua",
+	-- 	requires = {
+	-- 		"kyazdani42/nvim-web-devicons", -- optional, for file icon
+	-- 	},
+	-- })
 	use("famiu/bufdelete.nvim")
-	use({
-		"kyazdani42/nvim-tree.lua",
-		requires = {
-			"kyazdani42/nvim-web-devicons", -- optional, for file icon
-		},
-	})
-	use({
-		"numToStr/Comment.nvim",
-		config = function()
-			require("Comment").setup()
-		end,
-	})
+	use("numToStr/Comment.nvim")
 	use("norcalli/nvim-colorizer.lua")
 	use({
 		"lewis6991/gitsigns.nvim",
@@ -52,16 +47,5 @@ return require("packer").startup(function(use)
 			"nvim-lua/plenary.nvim",
 		},
 		-- tag = 'release' -- To use the latest release
-	})
-	use("tjdevries/train.nvim")
-	use({
-		"folke/zen-mode.nvim",
-		config = function()
-			require("zen-mode").setup({
-				-- your configuration comes here
-				-- or leave it empty to use the default settings
-				-- refer to the configuration section below
-			})
-		end,
 	})
 end)
