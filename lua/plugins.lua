@@ -20,7 +20,6 @@ return require("packer").startup(function(use)
 	use("L3MON4D3/LuaSnip") -- Snippets plugin
 
 	use("jose-elias-alvarez/null-ls.nvim")
-	use("jose-elias-alvarez/nvim-lsp-ts-utils")
 
 	use("rktjmp/lush.nvim")
 	-- use("sainnhe/gruvbox-material")
@@ -55,5 +54,14 @@ return require("packer").startup(function(use)
 		-- tag = 'release' -- To use the latest release
 	})
 	use("tjdevries/train.nvim")
-
+	use({
+		"folke/zen-mode.nvim",
+		config = function()
+			require("zen-mode").setup({
+				-- your configuration comes here
+				-- or leave it empty to use the default settings
+				-- refer to the configuration section below
+			})
+		end,
+	})
 end)

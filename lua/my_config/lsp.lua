@@ -11,7 +11,10 @@ local buf_map = function(bufnr, mode, lhs, rhs, opts)
 	})
 end
 
-local on_attach = function(_, bufnr)
+local on_attach = function(client, bufnr)
+	client.resolved_capabilities.document_formatting = false
+	client.resolved_capabilities.document_range_formatting = false
+
 	vim.cmd("command! LspDef lua vim.lsp.buf.definition()")
 	vim.cmd("command! LspFormatting lua vim.lsp.buf.formatting()")
 	vim.cmd("command! LspCodeAction lua vim.lsp.buf.code_action()")
@@ -39,7 +42,7 @@ local on_attach = function(_, bufnr)
 	buf_map(bufnr, "n", "<C-k>", "<cmd> LspSignatureHelp<CR>")
 end
 
-require("lspconfig").sumneko_lua.setup({
+lspconfig.sumneko_lua.setup({
 	settings = {
 		Lua = {
 			runtime = {
@@ -65,50 +68,10 @@ require("lspconfig").sumneko_lua.setup({
 	on_attach = on_attach,
 })
 
+lspconfig.eslint.setup({})
+
 lspconfig.tsserver.setup({
-	on_attach = function(client, bufnr)
-		client.resolved_capabilities.document_formatting = false
-		client.resolved_capabilities.document_range_formatting = false
-		local ts_utils = require("nvim-lsp-ts-utils")
-		ts_utils.setup({})
-		ts_utils.setup_client(client)
-		buf_map(bufnr, "n", "gs", ":TSLspOrganize<CR>")
-		buf_map(bufnr, "n", "<F3>", ":TSLspRenameFile<CR>")
-		buf_map(bufnr, "n", "go", ":TSLspImportAll<CR>")
-		-- defaults
-		ts_utils.setup({
-			debug = false,
-			disable_commands = false,
-			enable_import_on_completion = false,
-
-			-- import all
-			import_all_timeout = 5000, -- ms
-			-- lower numbers = higher priority
-			import_all_priorities = {
-				same_file = 1, -- add to existing import statement
-				local_files = 2, -- git files or files with relative path markers
-				buffer_content = 3, -- loaded buffer content
-				buffers = 4, -- loaded buffer names
-			},
-			import_all_scan_buffers = 100,
-			import_all_select_source = false,
-
-			-- filter diagnostics
-			filter_out_diagnostics_by_severity = {},
-			filter_out_diagnostics_by_code = {},
-
-			-- inlay hints
-			auto_inlay_hints = true,
-			inlay_hints_highlight = "Comment",
-
-			-- update imports on file move
-			update_imports_on_move = false,
-			require_confirmation_on_move = true,
-			watch_dir = nil,
-		})
-
-		on_attach(client, bufnr)
-	end,
+	on_attach = on_attach,
 	handlers = {
 		["textDocument/definition"] = function(_, result, params)
 			if result == nil or vim.tbl_isempty(result) then
