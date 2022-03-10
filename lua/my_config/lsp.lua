@@ -3,6 +3,7 @@ local cmp = require("cmp")
 local luasnip = require("luasnip")
 local log = require("vim.lsp.log")
 local util = require("vim.lsp.util")
+local runtime_path = vim.split(package.path, ";")
 
 local buf_map = function(bufnr, mode, lhs, rhs, opts)
 	vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, opts or {
@@ -10,7 +11,7 @@ local buf_map = function(bufnr, mode, lhs, rhs, opts)
 	})
 end
 
-local on_attach = function(client, bufnr)
+local on_attach = function(_, bufnr)
 	vim.cmd("command! LspDef lua vim.lsp.buf.definition()")
 	vim.cmd("command! LspFormatting lua vim.lsp.buf.formatting()")
 	vim.cmd("command! LspCodeAction lua vim.lsp.buf.code_action()")
@@ -39,9 +40,29 @@ local on_attach = function(client, bufnr)
 end
 
 require("lspconfig").sumneko_lua.setup({
-	on_attach = function(client, bufnr)
-		on_attach(client, bufnr)
-	end,
+	settings = {
+		Lua = {
+			runtime = {
+				-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+				version = "LuaJIT",
+				-- Setup your lua path
+				path = runtime_path,
+			},
+			diagnostics = {
+				-- Get the language server to recognize the `vim` global
+				globals = { "vim" },
+			},
+			workspace = {
+				-- Make the server aware of Neovim runtime files
+				library = vim.api.nvim_get_runtime_file("", true),
+			},
+			-- Do not send telemetry data containing a randomized but unique identifier
+			telemetry = {
+				enable = false,
+			},
+		},
+	},
+	on_attach = on_attach,
 })
 
 lspconfig.tsserver.setup({
@@ -91,27 +112,27 @@ lspconfig.tsserver.setup({
 	handlers = {
 		["textDocument/definition"] = function(_, result, params)
 			if result == nil or vim.tbl_isempty(result) then
-				local _ = vim.lsp.log.info() and vim.lsp.log.info(params.method, "No location found")
+				local _ = log.info() and log.info(params.method, "No location found")
 				return nil
 			end
 
 			if vim.tbl_islist(result) then
-				vim.lsp.util.jump_to_location(result[1])
+				util.jump_to_location(result[1])
 				if #result > 1 then
 					local isReactDTs = false
-					for key, value in pairs(result) do
+					for _, value in pairs(result) do
 						if string.match(value.uri, "react/index.d.ts") then
 							isReactDTs = true
 							break
 						end
 					end
 					if not isReactDTs then
-						vim.fn.setqflist(vim.lsp.util.locations_to_items(result))
+						vim.fn.setqflist(util.locations_to_items(result))
 						vim.api.nvim_command("copen")
 					end
 				end
 			else
-				vim.lsp.util.jump_to_location(result)
+				util.jump_to_location(result)
 			end
 		end,
 	},
