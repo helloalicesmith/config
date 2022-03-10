@@ -3,9 +3,6 @@ local exec = vim.api.nvim_exec
 local g = vim.g
 local opt = vim.opt
 
-local keymap = vim.api.nvim_set_keymap
-local opts = { noremap = true, silent = true }
-
 g.translate_source = 'ru'
 g.translate_target = 'en'
 g.mapleader = ' '
@@ -25,6 +22,10 @@ opt.mouse = 'a'
 cmd([[
 filetype indent plugin on
 syntax enable
+]])
+
+cmd([[
+autocmd BufEnter * set formatoptions-=cro
 ]])
 
 cmd([[
