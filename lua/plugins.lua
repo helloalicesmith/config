@@ -48,4 +48,5 @@ return require("packer").startup(function(use)
 		},
 		-- tag = 'release' -- To use the latest release
 	})
+	use("tjdevries/cyclist.vim")
 end)

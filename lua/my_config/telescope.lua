@@ -7,6 +7,7 @@ local action_state = require("telescope.actions.state")
 
 telescope.setup({
 	defaults = {
+		file_ignore_patterns = { "node_modules" },
 		mappings = {
 			i = {
 				-- ["<esc>"] = actions.close,
@@ -28,6 +29,7 @@ telescope.setup({
 		layout_config = {
 			horizontal = {
 				mirror = false,
+				width = 0.9,
 			},
 			vertical = {
 				mirror = false,

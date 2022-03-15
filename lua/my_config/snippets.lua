@@ -26,7 +26,6 @@ ls.snippets.all = {
       t("export const "),
       i(1, "Component"),
       t({": React.FC<> = props => {", "\t"}),
-      i(2),
       t({"", "}", ""}),
     }),
     s("c", {
@@ -37,15 +36,13 @@ ls.snippets.all = {
     }),
     s("l", {
       t({"console.log("}),
-      i(1, "'==> log'"),
+      i(1, ""),
       t({")"}),
-      i(2),
     }),
     s("i", {
       t("import { "),
       i(1),
       t(" } from '"),
-      i(2),
       t("'")
     })
 }

@@ -31,7 +31,9 @@ map(
 	default_opts
 )
 map("n", "~", "<cmd>lua require 'telescope.builtin'.marks()<CR>", default_opts)
-map("n", "<leader>e", ":e %:h/", default_opts)
+map("n", "<leader>e", ":e %:h/", {
+	noremap = true,
+})
 
 map("n", "<Up>", ":resize -2<CR>", default_opts)
 map("n", "<Down>", ":resize +2<CR>", default_opts)
