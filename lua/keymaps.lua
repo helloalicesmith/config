@@ -19,7 +19,7 @@ map(
 	default_opts
 )
 map("n", "<leader>b", ':lua require("telescope.builtin").buffers()<cr>', default_opts)
-map("n", "<leader>o", ':lua require("telescope.builtin").oldfiles()<cr>', default_opts)
+map("n", "<leader>o", ':lua require("telescope").extensions.frecency.frecency(require("telescope.themes").get_ivy({}))<cr>', default_opts)
 
 map("n", "<leader>p", ':lua require("my_config.telescope").project_files()<cr>', default_opts)
 
