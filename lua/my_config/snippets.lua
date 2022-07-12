@@ -19,31 +19,31 @@ local fmta = require("luasnip.extras.fmt").fmta
 local types = require("luasnip.util.types")
 local conds = require("luasnip.extras.expand_conditions")
 
-ls.snippets.all = {
-    s("fnc", {
-      t({"import React from 'react'", ""}),
-      t({"import { css } from '@emotion/react'", "", ""}),
-      t("export const "),
-      i(1, "Component"),
-      t({": React.FC<> = props => {", "\t"}),
-      t({"", "}", ""}),
-    }),
-    s("c", {
-      t({"const "}),
-      i(1),
-      t({" = useCallback(() => {", "\t"}),
-      t({"", "}, [])", ""}),
-    }),
-    s("l", {
-      t({"console.log("}),
-      i(1, ""),
-      t({")"}),
-    }),
-    s("i", {
-      t("import { "),
-      i(1),
-      t(" } from '"),
-      t("'")
-    })
-}
+-- ls.snippets.all = {
+    -- s("fnc", {
+      -- t({"import React from 'react'", ""}),
+      -- t({"import { css } from '@emotion/react'", "", ""}),
+      -- t("export const "),
+      -- i(1, "Component"),
+      -- t({": React.FC<> = props => {", "\t"}),
+      -- t({"", "}", ""}),
+    -- }),
+    -- s("c", {
+      -- t({"const "}),
+      -- i(1),
+      -- t({" = useCallback(() => {", "\t"}),
+      -- t({"", "}, [])", ""}),
+    -- }),
+    -- s("l", {
+      -- t({"console.log("}),
+      -- i(1, ""),
+      -- t({")"}),
+    -- }),
+    -- s("i", {
+      -- t("import { "),
+      -- i(1),
+      -- t(" } from '"),
+      -- t("'")
+    -- })
+-- }
 
