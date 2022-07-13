@@ -5,7 +5,7 @@ return require("packer").startup(function(use)
 		as = "catppuccin",
 	})
 	use("windwp/nvim-ts-autotag")
-	use("junegunn/vim-peekaboo")
+	-- use("junegunn/vim-peekaboo")
 	-- use 'ellisonleao/gruvbox.nvim'
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 	use("nvim-telescope/telescope.nvim")

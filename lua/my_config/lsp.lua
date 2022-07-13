@@ -88,6 +88,10 @@ lspconfig.sumneko_lua.setup({
 	on_attach = on_attach,
 })
 
+lspconfig.pyright.setup({
+    on_attach = on_attach,
+})
+
 lspconfig.eslint.setup({})
 
 lspconfig.tsserver.setup({
