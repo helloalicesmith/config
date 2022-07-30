@@ -22,7 +22,12 @@ map(
 	default_opts
 )
 map("n", "<leader>b", ':lua require("telescope.builtin").buffers()<cr>', default_opts)
-map("n", "<leader>o", ':lua require("telescope").extensions.frecency.frecency(require("telescope.themes").get_ivy({}))<cr>', default_opts)
+map(
+	"n",
+	"<leader>o",
+	':lua require("telescope").extensions.frecency.frecency(require("telescope.themes").get_ivy({}))<cr>',
+	default_opts
+)
 
 map("n", "<leader>p", ':lua require("my_config.telescope").project_files()<cr>', default_opts)
 
@@ -53,7 +58,7 @@ map("n", "<C-l>", ":BufferLineMoveNext<CR>", default_opts)
 
 map("n", "<C-c>", ":lua require('bufdelete').bufdelete(bufnum, true)<CR>", default_opts)
 
-map("n", "<F4>", ":NvimTreeToggle<CR>", default_opts)
+map("n", "<F4>", ":lua require'telescope'.extensions.project.project{}<CR>", default_opts)
 
 map("i", "<c-v>", "<ESC>:set paste<CR>gi<C-R>+<ESC>:set nopaste<CR>gi", default_opts)
 

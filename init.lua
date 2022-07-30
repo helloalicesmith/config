@@ -1,4 +1,4 @@
-require('settings')
-require('plugins')
-require('my_config')
-require('keymaps')
+require("settings")
+require("plugins")
+require("my_config")
+require("keymaps")
