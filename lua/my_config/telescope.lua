@@ -11,10 +11,10 @@ telescope.setup({
 		mappings = {
 			i = {
 				-- ["<esc>"] = actions.close,
-				["<leader>q"] = actions.send_to_qflist,
+				["<leader>q"] = actions.smart_add_to_qflist + actions.open_qflist,
 			},
 			n = {
-				["<leader>q"] = actions.send_to_qflist,
+				["<leader>q"] = actions.smart_add_to_qflist + actions.open_qflist,
 			},
 		},
 		vimgrep_arguments = {

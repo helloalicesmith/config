@@ -68,3 +68,5 @@ map("n", "<c-j>", ":cnext <CR>", default_opts)
 map("n", "<c-k>", ":cprev <CR>", default_opts)
 
 vim.cmd("command! Gb Gitsigns toggle_current_line_blame")
+
+map("n", "gqr", ":cdo s/// | update", default_opts)

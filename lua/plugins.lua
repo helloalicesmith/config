@@ -53,4 +53,7 @@ return require("packer").startup(function(use)
 		requires = { "tami5/sqlite.lua" },
 	})
 	use("nvim-telescope/telescope-project.nvim")
+	use({
+		"dinhhuy258/git.nvim",
+	})
 end)
