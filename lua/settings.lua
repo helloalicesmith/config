@@ -19,9 +19,20 @@ opt.swapfile = false
 opt.hlsearch = false
 opt.mouse = "a"
 
+opt.ignorecase = true
+opt.smartcase = true
+opt.showmatch = true
+
+opt.splitright = true
+opt.splitbelow = true
+
+-- cmd([[
+-- filetype indent plugin on
+-- syntax enable
+-- ]])
+
 cmd([[
-filetype indent plugin on
-syntax enable
+autocmd Filetype python setlocal makeprg=flake8
 ]])
 
 cmd([[
