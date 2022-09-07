@@ -31,7 +31,7 @@ map(
 
 map("n", "<leader>p", ':lua require("my_config.telescope").project_files()<cr>', default_opts)
 
-map("n", "<F2>", "<cmd>lua require 'telescope'.extensions.file_browser.file_browser()<CR>", default_opts)
+map("n", "<F2>", ":Telescope file_browser default_selection_index=2<CR>", default_opts)
 map(
 	"n",
 	"<leader><F2>",
