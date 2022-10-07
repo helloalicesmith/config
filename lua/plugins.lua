@@ -56,4 +56,11 @@ return require("packer").startup(function(use)
 	use({
 		"dinhhuy258/git.nvim",
 	})
+	use({
+		"nvim-telescope/telescope.nvim",
+		requires = { { "nvim-lua/plenary.nvim" }, { "kdheepak/lazygit.nvim" } },
+		config = function()
+			require("telescope").load_extension("lazygit")
+		end,
+	})
 end)

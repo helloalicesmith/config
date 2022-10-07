@@ -71,3 +71,4 @@ vim.cmd("command! Gb Gitsigns toggle_current_line_blame")
 
 map("n", "gqr", ":cdo s/// | update", default_opts)
 map("n", "gqc", ":call setqflist([])<CR>", default_opts)
+map("n", "<leader>lg", ":LazyGit<CR>", default_opts)
